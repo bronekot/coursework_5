@@ -38,7 +38,10 @@ class HeadHunterAPI(AbstractAPI):
         params = {"text": query, "per_page": per_page, "page": page}
         try:
             response = requests.get(
-                f"{self.base_url}/vacancies", headers=self.headers, params=params
+                f"{self.base_url}/vacancies",
+                headers=self.headers,
+                params=params,
+                timeout=10,
             )
             response.raise_for_status()  # Проверяем на ошибки HTTP
             data = response.json()

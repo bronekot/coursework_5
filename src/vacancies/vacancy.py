@@ -24,7 +24,7 @@ class Vacancy:
         if self.salary:
             if isinstance(self.salary.salary_from, int):
                 return self.salary.salary_from
-            elif (
+            if (
                 isinstance(self.salary.salary_from, str)
                 and self.salary.salary_from.isdigit()
             ):
