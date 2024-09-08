@@ -4,13 +4,14 @@ version = "0.1.0"
 description = "Проект по работе с API HeadHunter и базой данных PostgreSQL"
 authors = ["BroneKot"]
 readme = "README.md"
-packages = [{ include = "." }]
+packages = [{ include = "src/" }]
 
 [tool.poetry.dependencies]
 python = "^3.12"
 requests = "^2.32.3"
-psycopg2-binary = "^2.9.9"
+psycopg2 = "^2.9.9"
 python-dotenv = "^1.0.1"
+dotenv = "^0.0.5"
 
 [build-system]
 requires = ["poetry-core"]

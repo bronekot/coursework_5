@@ -1,12 +1,13 @@
 import requests
 from requests.exceptions import RequestException
 from src.abstract_classes.abstract_classes import AbstractAPI
-from config import BASE_URL
+from src.config import BASE_URL
 from typing import List, Optional
 import logging
+import json
 
 # Import the Vacancy class (assuming it's in the same directory)
-from .vacancy import Vacancy
+from src.vacancies.vacancy import Vacancy
 
 logging.basicConfig(level=logging.INFO)
 
@@ -47,6 +48,13 @@ class HeadHunterAPI(AbstractAPI):
             data = response.json()
 
             vacancies_data = data.get("items", [])
+
+            # Вывод сырых данных API для первых 3 вакансий (для отладки)
+            # for i, vacancy_data in enumerate(vacancies_data[:3]):
+            #     logging.info(
+            #         f"Raw API response for vacancy {i+1}:\n{json.dumps(vacancy_data, indent=4, ensure_ascii=False)}"
+            #     )
+
             vacancies = [
                 Vacancy.from_dict(vacancy_data) for vacancy_data in vacancies_data
             ]
