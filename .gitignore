@@ -1,0 +1,10 @@
+.mypy_cache
+.venv
+vacancies.json
+.cpython
+.pyc
+__pycache__
+/venv
+/.mypy_cache
+/.pytest_cache
+.env
